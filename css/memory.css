@@ -1,0 +1,110 @@
+body {
+    background-color: #3ba89f;
+    
+}
+
+
+#cover{
+    width:100%;
+    height:100%;
+}
+#one {
+    background-image: linear-gradient(to bottom, #33ffee 0%, #ffc799 100%);
+    width: 18%;
+    height: 200px;
+    float:left;
+    border: solid;
+    border-color: aliceblue;
+} 
+
+
+
+
+#two {
+    background-image: linear-gradient(to bottom, #33ffee 0%, #ffc799 100%);
+    width: 18%;
+    height: 200px;
+    float:left;
+    border: solid;
+    border-color: aliceblue;
+}
+
+#three {
+    background-image: linear-gradient(to bottom, #33ffee 0%, #ffc799 100%);
+    width: 18%;
+    height: 200px;
+    float:left;
+    border: solid;
+    border-color: aliceblue;
+}
+
+#four {
+    background-image: linear-gradient(to bottom, #33ffee 0%, #ffc799 100%);
+    width: 18%;
+    height: 200px;
+    float:left;
+    border: solid;
+    border-color: aliceblue;
+}
+
+#five {
+    background-image: linear-gradient(to bottom, #33ffee 0%, #ffc799 100%);
+    width: 18%;
+    height: 200px;
+    float:left;
+    border: solid;
+    border-color: aliceblue;
+}
+
+#six {
+    background-image: linear-gradient(to bottom, #33ffee 0%, #ffc799 100%);
+    width: 18%;
+    height: 200px;
+    float:left;
+    border: solid;
+    border-color: aliceblue;
+} 
+
+#seven {
+    background-image: linear-gradient(to bottom, #33ffee 0%, #ffc799 100%);
+    width: 18%;
+    height: 200px;
+    float:left;
+    border: solid;
+    border-color: aliceblue;
+}
+
+#eight {
+    background-image: linear-gradient(to bottom, #33ffee 0%, #ffc799 100%);
+    width: 18%;
+    height: 200px;
+    float:left;
+    border: solid;
+    border-color: aliceblue;
+} 
+#nine {
+    background-image: linear-gradient(to bottom, #33ffee 0%, #ffc799 100%);
+    width: 18%;
+    height: 200px;
+    float:left;
+    border: solid;
+    border-color: aliceblue;
+}
+
+#ten {
+    background-image: linear-gradient(to bottom, #33ffee 0%, #ffc799 100%);
+    width: 18%;
+    height: 200px;
+    float:left;
+    border: solid;
+    border-color: aliceblue;
+}
+
+#points {
+    float: left;
+}
+
+img{
+    width: 280px;
+    height: 280px;
+}
