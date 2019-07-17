@@ -1,27 +1,76 @@
 <!DOCTYPE html>
-<html>
-    <head><h1></h1>
-        <link rel="stylesheet" type="text/css" href="css/memory.css">
-        <script type="text/javascript" src="src/memory.js"></script>
-    </head>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="css/memory.css" type="text/css">
+    <title>Memory Game</title>
+</head>
+
+
+    <h1>MEMORY GAME</h1>
+	<h1 id="points">POINTS : 0</h1>
+
+
 <body>
-<h1>MEMORY GAME</h1>
-    <div id="cover">
-        <div id="one" class="triangle" onclick="one()"></div>
-        <div id="two" class="circle" onclick="two()"></div>
-        <div id="three" class="circle" onclick="three()"></div>
-        <div id="four" class="heart" onclick="four()"></div>
-        <div id="five" class="star" onclick="five()"></div>
-        <div id="six" class="square" onclick="six()"></div>
-        <div id="seven" class="star" onclick="seven()"></div>
-        <div id="eight" class="square" onclick="eight()"></div>
-        <div id="nine" class="triangle" onclick="nine()"></div>
-        <div id="ten" class="heart" onclick="ten()"></div>
-        <br/>
-        <h1><div id="points">POINTS : 0</div></h1>
+    <section class="board">
+        <div class="cards" data-shape="circle" id="one">
+            <img class="backFace" src="images/circle.png" alt="circle">
+            <img class="frontFace" src="images/front.png" alt="front">
+        </div>
 
-    </div>
+        <div class="cards" data-shape="circle" id="two">
+            <img class="backFace" src="images/circle.png" alt="cirle">
+            <img class="frontFace" src="images/front.png" alt="front">
+        </div>
 
+        <div class="cards" data-shape="square" id="three">
+            <img class="backFace" src="images/square.png" alt="square">
+            <img class="frontFace" src="images/front.png" alt="front">
+        </div>
+
+        <div class="cards" data-shape="square" id="four">
+            <img class="backFace" src="images/square.png" alt="square">
+            <img class="frontFace" src="images/front.png" alt="front">
+        </div>
+
+        <div class="cards" data-shape="heart" id="five">
+            <img class="backFace" src="images/heart.png" alt="heart">
+            <img class="frontFace" src="images/front.png" alt="front">
+        </div>
+
+        <div class="cards" data-shape="heart" id="six">
+            <img class="backFace" src="images/heart.png" alt="heart">
+            <img class="frontFace" src="images/front.png" alt="front">
+        </div>
+
+        <div class="cards" data-shape="triangle" id="seven">
+            <img class="backFace" src="images/triangle.png" alt="triangle">
+            <img class="frontFace" src="images/front.png" alt="front">
+        </div>
+
+        <div class="cards" data-shape="triangle" id="eight">
+            <img class="backFace" src="images/triangle.png" alt="triangle">
+            <img class="frontFace" src="images/front.png" alt="front">
+        </div>
+
+        <div class="cards" data-shape="star" id="nine">
+            <img class="backFace" src="images/star.png" alt="star">
+            <img class="frontFace" src="images/front.png" alt="front">
+        </div>
+
+        <div class="cards" data-shape="star" id="ten">
+            <img class="backFace" src="images/star.png" alt="star">
+            <img class="frontFace" src="images/front.png" alt="front">
+        </div>
+
+    </section>
+
+
+		<script src="src/memory.js" type="text/javascript"></script>
 </body>
-</html>
 
+</html>
