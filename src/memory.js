@@ -1,144 +1,107 @@
-//variable that calculates score
-var points = 0;
 
-//variable that checks function name
-var funcName = "";
+// card is selected
+const memoryCard = document.querySelectorAll('.cards');
 
-//array that stores function names
-var funcArr = [];
+// checks if card has flipped
+let cardFlipped = false,
 
+// locks the board once it has been shuffled 
+setBoard = false,
 
+// back card
+backCard,
 
-/*
-    ***functions one to ten***
-    - show pictures when clicked
-    - check function names
-    - function names are stored in funcArr
-    - function calcScore is called 
-    */
-    function one(){
-        document.getElementById("one").style.backgroundImage = "url('images/triangle.png')";
-        funcName = "one";
-        funcArr.push(funcName);
-        calcScore();
+//front card
+frontCard,
+
+//calculates points
+points = 0;
+
+/* 
+    - reveals back side of the card
+    - on first click, card will not flip back if clicked
+    - on second click, card will not flip back if clicked
+*/
+function revealCard() {
+    if (setBoard) return;
+    if (backCard === this) return;
+
+    this.classList.toggle('show');
+
+    if (!cardFlipped) {
+        cardFlipped = true;
+        backCard = this;
+
+        return;
     }
+    frontCard = this;
 
-    function two(){
-        document.getElementById("two").style.backgroundImage = "url('images/circle.png')";
-        funcName = "two";
-        funcArr.push(funcName);
-        calcScore();
+    cardsMatch();
+	
+	if(points == 500){
+        setTimeout(function(){ confirm("CONGRADULATIONS! Here is another round");
+     }, 1000);
 
+     setTimeout(function(){ location.reload(); }, 3000);
+	}
+}
+
+
+/* 
+    - checks if cards match
+    - disable the flip is disabled if cards match
+    - cards flip back if cards do not match 
+*/
+function cardsMatch() {
+
+    if (backCard.dataset.shape === frontCard.dataset.shape) {
+		points += 100;
+		document.getElementById("points").innerHTML = "POINTS : " + points;
+        disablerevealCard();
+    } else {
+
+        flipCardBack();
     }
+}
 
-    function three(){
-        document.getElementById("three").style.backgroundImage = "url('images/circle.png')";   
-        funcName = "three";
-        funcArr.push(funcName);
-        calcScore();
-     }
-           
-    function four(){
-        document.getElementById("four").style.backgroundImage = "url('images/heart.png')";
-        funcName = "four";
-        funcArr.push(funcName);
-        calcScore();
-    }
+// cards flip back if they do not match 
+function removeClick() {
+    backCard.classList.remove('show');
+    frontCard.classList.remove('show');
+}
 
-    function five(){
-        document.getElementById("five").style.backgroundImage = "url('images/star.png')";
-        funcName = "five";
-        funcArr.push(funcName);
-        calcScore();
-    }
+// once card matches, nothing happens when clicked
+function disablerevealCard() {
+    backCard.removeEventListener('click', revealCard);
+    frontCard.removeEventListener('click', revealCard);
+    resetGameBoard();
+}
 
-    function six(){
-        document.getElementById("six").style.backgroundImage = "url('images/square.png')";
-        funcName = "six";
-        funcArr.push(funcName);
-        calcScore();
-    }
-
-    function seven(){
-        document.getElementById("seven").style.backgroundImage = "url('images/star.png')";
-        funcName = "seven";
-        funcArr.push(funcName);
-        calcScore();
-    }
-
-    function eight(){
-        document.getElementById("eight").style.backgroundImage = "url('images/square.png')";
-        funcName = "eight";
-        funcArr.push(funcName);
-        calcScore();
-    }
-
-    function nine(){
-        document.getElementById("nine").style.backgroundImage = "url('images/triangle.png')";
-        funcName = "nine";
-        funcArr.push(funcName);
-        calcScore();
-    }
-
-    function ten(){
-        document.getElementById("ten").style.backgroundImage = "url('images/heart.png')";
-        funcName = "ten";
-        funcArr.push(funcName);
-        calcScore();
-    }
-
-
-    
-function calcScore(){
-
-        // checks when to flip picture back to black if the 2 pictures do not match
-        if(funcArr.length % 3 == 0){
-            document.getElementById(funcArr[0]).style.background = "linear-gradient(to bottom, #33ffee 0%, #ffc799 100%)";
-        
-            document.getElementById(funcArr[1]).style.background = "linear-gradient(to bottom, #33ffee 0%, #ffc799 100%)";
-
-            /* 
-            ***the if statements***
-            - add points when the same pictures are flipped
-            - cards remain open when the same pictures are flipped
-            */
-
-            if(funcArr[0] == "one" && funcArr[1] == "nine" || funcArr[0] == "nine" && funcArr[1] == "one"){
-                document.getElementById("one").style.backgroundImage = "url('images/triangle.png')";
-                document.getElementById("nine").style.backgroundImage = "url('images/triangle.png')";
-                points += 100
-  
-            } else if(funcArr[0] == "two" && funcArr[1] == "three" || funcArr[0] == "three" && funcArr[1] == "two"){
-                document.getElementById("two").style.backgroundImage = "url('images/circle.png')";
-                document.getElementById("three").style.backgroundImage = "url('images/circle.png')";
-                points += 100
-
-            } else if(funcArr[0] == "four" && funcArr[1] == "ten" || funcArr[0] == "ten" && funcArr[1] == "four"){
-                document.getElementById("four").style.backgroundImage = "url('images/heart.png')";
-                document.getElementById("ten").style.backgroundImage = "url('images/heart.png')";
-                points += 100
-
-            } else if(funcArr[0] == "five" && funcArr[1] == "seven" || funcArr[0] == "seven" && funcArr[1] == "five"){
-                document.getElementById("five").style.backgroundImage = "url('images/star.png')";
-                document.getElementById("seven").style.backgroundImage = "url('images/star.png')";
-                points += 100
-
-            } else if(funcArr[0] == "six" && funcArr[1] == "eight" || funcArr[0] == "eight" && funcArr[1] == "six"){
-                document.getElementById("six").style.backgroundImage = "url('images/square.png')";
-                document.getElementById("eight").style.backgroundImage = "url('images/square.png')";
-                points += 100
-
-            } else { points += 0;}
-
-        
-            // the funcArr is emptied since the above if statements only check elements 1 and 2
-          funcArr = [];
-
-            // the first element is added to funcArr
-          funcArr.push(funcName);
-    }
-    
-    // points are displayed
-    document.getElementById("points").innerHTML = "POINTS : " + points;
+// timer for cards to flip back when they do not match
+function flipCardBack() {
+    setBoard = true;
+    setTimeout(() => {
+        removeClick();
+        resetGameBoard();
+    }, 800);
 
 }
+
+// stop the game when all cards have been flipped and matched 
+function resetGameBoard() {
+    cardFlipped = false;
+    setBoard = false;
+    backCard = null;
+    frontCard = null;
+}
+
+// immediately invoke the shuffle function at the start of each game
+(function shuffleCards() {
+
+    memoryCard.forEach(card => {
+        let shuffle = Math.floor(Math.random() * 9);
+        card.style.order = shuffle;
+    });
+})();
+
+memoryCard.forEach(cards => cards.addEventListener('click', revealCard));
