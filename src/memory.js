@@ -105,3 +105,8 @@ function resetGameBoard() {
 })();
 
 memoryCard.forEach(cards => cards.addEventListener('click', revealCard));
+
+
+function refresh(){
+    setTimeout(function(){ location.reload(); }, 100);
+}
